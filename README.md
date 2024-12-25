@@ -2,7 +2,9 @@
 
 ## Validation of
 
-The following project is a test suite used to verify the functionality of the different parts of the eCommerce page [Product Store](https://www.demoblaze.com/index.html)
+The following project is a test suite used to verify the functionality of the different parts of the eCommerce page [Product Store](https://www.demoblaze.com/index.html).
+
+<p align="center"><img alt="product_store" src="photos/product_store.png" width="500"></p>
 
 This is a little video that shows how the TestRunner should looks like.
 [![Watch the video](https://img.youtube.com/vi/vpNckWHa7aI/0.jpg)](https://www.youtube.com/watch?v=vpNckWHa7aI)
