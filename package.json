@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
-    "@cypress/browserify-preprocessor": "latest"
+    "@cypress/browserify-preprocessor": "latest",
+    "exceljs": "^4.4.0"
   }
 }
