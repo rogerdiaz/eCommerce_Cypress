@@ -26,3 +26,16 @@ Feature: End to end eCommerce page validation
         When I click on Next
         When I click on Previous
         Then I see the First page
+
+    Scenario Outline: Category: Cart functionality
+        Given I go to Product Store
+        When I click on product named "Samsung galaxy s6"
+        When I add the product to the Cart
+        Then The product "Samsung galaxy s6" was added to the cart 
+
+    Scenario Outline: Category: Item deletion functionality
+        Given I go to Product Store
+        When I click on product named "Samsung galaxy s6"
+        When I add the product to the Cart
+        When I delete the product I added
+        Then The "Samsung galaxy s6" is not found in the Items list

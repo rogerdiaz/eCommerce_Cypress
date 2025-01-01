@@ -1,11 +1,10 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 import Body from "../../pageObjects/body";
+import header from "../../pageObjects/header";
 const ExcelJs = require("exceljs");
 
-//cypress/excelTest.js
-//cypress/integration/pageObjects/body.js
 const psBody = new Body();
-//const excelData = new excelTest();
+const psHeader = new header();
 
 Given("I go to Product Store", () => {
   cy.visit(Cypress.env("url")).wait(2500);
@@ -33,6 +32,21 @@ When("I click on Previous", () => {
   cy.wait(2000).then(() => {
     psBody.getPrevious().click();
   });
+});
+
+When("I click on product named {string}", (product) => {
+  psBody.getDevice().contains(product).click({ force: true });
+});
+
+When("I add the product to the Cart", () => {
+  psBody.getAddToCart().click({ force: true });
+});
+
+When("I delete the product I added", () => {
+  //This has to be placed in another function when possible
+  psHeader.getCart().click();
+  //////////////////////////////
+  psBody.getDeleteBttn().click({ force: true });
 });
 
 Then("I check all the elements of {string} list", (devices) => {
@@ -110,6 +124,15 @@ Then("I see the Second page", () => {
       }
     });
   });
+});
+
+Then("The product {string} was added to the cart", (item) => {
+  psHeader.getCart().click();
+  psBody.getListItem(item).should("be.visible");
+});
+
+Then("The {string} is not found in the Items list", (item) => {
+  psBody.getListItem(item).should("not.be.visible");
 });
 
 class excelTest {

@@ -16,5 +16,17 @@ class Body {
   getPrevious() {
     return cy.get('ul[class="pagination"] li button[id="prev2"]');
   }
+
+  getAddToCart() {
+    return cy.get('div[class="row"] div a[onclick="addToCart(1)"]');
+  }
+
+  getListItem(item) {
+    return cy.get('tbody[id="tbodyid"] tr[class="success"] td').contains(item);
+  }
+
+  getDeleteBttn() {
+    return cy.get('tr[class="success"] td a');
+  }
 }
 export default Body;
