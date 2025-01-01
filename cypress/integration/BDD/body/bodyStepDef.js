@@ -23,6 +23,18 @@ When("I click on Monitors", () => {
   psBody.getDevicesCategory("monitor").click();
 });
 
+When("I click on Next", () => {
+  cy.wait(2000).then(() => {
+    psBody.getNext().click({ force: true });
+  });
+});
+
+When("I click on Previous", () => {
+  cy.wait(2000).then(() => {
+    psBody.getPrevious().click();
+  });
+});
+
 Then("I check all the elements of {string} list", (devices) => {
   cy.wait(5000).then(() => {
     const excelData = new excelTest();
@@ -41,6 +53,58 @@ Then("I check all the elements of {string} list", (devices) => {
             cy.log("Excel list is " + excelItem);
           } else {
             cy.log("");
+          }
+        });
+      }
+    });
+  });
+});
+
+Then("I see the First page", () => {
+  cy.wait(5000).then(() => {
+    const excelData = new excelTest();
+    const arr = 12;
+    const devices = "Firstpage";
+
+    psBody.getDevice().each(($el) => {
+      const product = $el.text();
+      cy.log("Product from the web: " + product);
+
+      for (let i = 2; i < arr; i++) {
+        excelData.getExcelValue(i, devices, "Sheet2").then((excelItem) => {
+          if (excelItem === product) {
+            cy.log("Product is part of the " + devices + " list");
+            cy.log("Internet list is " + product);
+            cy.log("Excel list is " + excelItem);
+          } else {
+            cy.log("");
+          }
+        });
+      }
+    });
+  });
+});
+
+Then("I see the Second page", () => {
+  cy.wait(5000).then(() => {
+    const excelData = new excelTest();
+    const arr = 12;
+    const devices = "Secondpage";
+
+    psBody.getDevice().each(($el) => {
+      const product = $el.text();
+      cy.log("Product from the web: " + product);
+
+      for (let i = 2; i < arr; i++) {
+        excelData.getExcelValue(i, devices, "Sheet2").then((excelItem) => {
+          if (excelItem === product) {
+            cy.log("Product is part of the " + devices + " list");
+            cy.log("Internet list is " + product);
+            cy.log("Excel list is " + excelItem);
+          } else {
+            cy.log("");
+            // cy.log("Internet list is " + product);
+            // cy.log("Excel list is " + excelItem);
           }
         });
       }

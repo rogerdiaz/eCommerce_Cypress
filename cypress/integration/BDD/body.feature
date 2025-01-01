@@ -15,3 +15,14 @@ Feature: End to end eCommerce page validation
         Given I go to Product Store
         When I click on Monitors
         Then I check all the elements of "Monitors" list
+
+    Scenario Outline: Category: Next button functionality
+        Given I go to Product Store
+        When I click on Next
+        Then I see the Second page
+
+    Scenario Outline: Category: Previous button functionality
+        Given I go to Product Store
+        When I click on Next
+        When I click on Previous
+        Then I see the First page
