@@ -23,8 +23,8 @@ module.exports = defineConfig({
   chromeWebSecurity: false,
   viewportWidth: 1400,
   viewportHeight: 1660,
-  defaultCommandTimeout: 80000,
-  taskTimeout: 80000,
+  defaultCommandTimeout: 10000,
+  taskTimeout: 10000,
   pageLoadTimeout: 80000,
 
   env: {

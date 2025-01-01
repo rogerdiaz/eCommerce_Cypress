@@ -49,6 +49,30 @@ When("I delete the product I added", () => {
   psBody.getDeleteBttn().click({ force: true });
 });
 
+When("I go to Cart", () => {
+  psHeader.getCart().click({ force: true });
+});
+
+When("I click on Place Order", () => {
+  psBody.getPlaceOrder().click({ force: true });
+});
+
+When(
+  "I fill the Place Order form with the info Name:{string}, Country:{string}, City:{string}, Credit Cart:{string}, Month:{string}, Year:{string}",
+  (Name, Country, City, creditCard, Month, Year) => {
+    const formID = ["name", "country", "city", "card", "month", "year"];
+    let formValue = [Name, Country, City, creditCard, Month, Year];
+    cy.wait(1000);
+    for (var i = 0; i < 6; i++) {
+      psBody.getFormField(formID[i]).type(formValue[i]);
+    }
+  }
+);
+
+When("I click on Purchase", () => {
+  psBody.getPurchaseBttn().click({ force: true });
+});
+
 Then("I check all the elements of {string} list", (devices) => {
   cy.wait(5000).then(() => {
     const excelData = new excelTest();
@@ -132,8 +156,22 @@ Then("The product {string} was added to the cart", (item) => {
 });
 
 Then("The {string} is not found in the Items list", (item) => {
-  psBody.getListItem(item).should("not.be.visible");
+  psBody.getListItem(item).should("not.exist");
 });
+
+Then(
+  "Popup message shows the same Amount, Card Number:{string}, Name:{string}, Date:{string}",
+  (CardNumber, Name, Date) => {
+    psBody.getPurchaseTotal().then((Amount) => {
+      Amount = Amount.replace("Total: ", "") + " USD";
+      cy.log("Amount is:" + Amount);
+      const arr = [Amount, CardNumber, Name, Date];
+      for (var i = 0; i < 4; i++) {
+        psBody.getPurchasePopUpInfo(arr[i]);
+      }
+    });
+  }
+);
 
 class excelTest {
   getExcelValue(row, device, sheet) {

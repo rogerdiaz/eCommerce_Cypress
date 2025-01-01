@@ -28,5 +28,33 @@ class Body {
   getDeleteBttn() {
     return cy.get('tr[class="success"] td a');
   }
+
+  getPlaceOrder() {
+    return cy.get('div[class="row"] div[class="col-lg-1"] button');
+  }
+
+  getFormField(field) {
+    return cy.get('form div[class="form-group"] input[id="' + field + '"]');
+  }
+
+  getPurchaseBttn() {
+    return cy.get(
+      'div[class="modal-content"] div[class="modal-footer"] button[onclick="purchaseOrder()"]'
+    );
+  }
+
+  getPurchaseTotal() {
+    return cy.get('form label[id="totalm"]').then(($div) => {
+      return String($div.text());
+    });
+  }
+
+  getPurchasePopUpInfo(info) {
+    return cy
+      .get(
+        'div[class="sweet-alert  showSweetAlert visible"] p[class="lead text-muted "]'
+      )
+      .contains(info);
+  }
 }
 export default Body;
