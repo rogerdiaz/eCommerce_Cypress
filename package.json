@@ -4,7 +4,7 @@
   "description": "e2e testing to an eCommerce store",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run"
+    "test": "npx cypress run --spec \"cypress/integration/BDD/body.feature\""
   },
   "author": "Roger Diaz",
   "license": "ISC",

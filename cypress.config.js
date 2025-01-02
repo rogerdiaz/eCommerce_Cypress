@@ -20,6 +20,7 @@ async function setupNodeEvents(on, config) {
 }
 
 module.exports = defineConfig({
+  video: true,
   chromeWebSecurity: false,
   viewportWidth: 1400,
   viewportHeight: 1660,
@@ -33,7 +34,7 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents,
     specPattern: "cypress/integration/BDD/*.feature",
-    experimentalMemoryManagement: true,
-    numTestsKeptInMemory: 1,
+    // experimentalMemoryManagement: true,
+    // numTestsKeptInMemory: 1,
   },
 });
