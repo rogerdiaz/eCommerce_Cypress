@@ -22,7 +22,9 @@ class Body {
   }
 
   getListItem(item) {
-    return cy.get('tbody[id="tbodyid"] tr[class="success"] td').contains(item);
+    return cy
+      .get("tbody[id='tbodyid']")
+      .contains("td", item, { matchCase: false });
   }
 
   getDeleteBttn() {
