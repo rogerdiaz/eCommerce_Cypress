@@ -7,7 +7,7 @@ The following project is a test suite used to verify the functionality of the di
 <p align="center"><img alt="product_store" src="photos/product_store.png" width="500"></p>
 
 Click on this to watch the video of a purchase test case.
-[![Watch the video](https://img.youtube.com/vi/vpNckWHa7aI/0.jpg)](https://youtu.be/mIirWyaVQU0)
+[![Watch the video](https://img.youtube.com/vi/mIirWyaVQU0/0.jpg)](https://youtu.be/mIirWyaVQU0)
 
 ## How to install and run this repo
 
