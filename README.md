@@ -1,6 +1,6 @@
 # Functional Testing of a eCommerce site with Cypress
 
-## Validation of
+## Validation of eCommerce site
 
 The following project is a test suite used to verify the functionality of the different parts of the eCommerce page [Product Store](https://www.demoblaze.com/index.html).
 
